@@ -1,36 +1,27 @@
-=begin
-def pull_html
-pull the course catalog page which is the one we want scraped
+
+#INFORMATION NECESSARY TO RETRIEVE DETAILS:
+#actual form ID = OSR_CAT_SRCH,  name is win0
+#subject area name =   OSR_CAT_SRCH_WK_DESCR
+#catalog number area = OSR_CAT_SRCH_WK_CATALOG_NBR
+#choices for catalog = OSR_CAT_SRCH_WK_OSR_EXACT_MATCH1
+#course title inside span with ID = OSR_CAT_SRCH_OSR_CRSE_HEADER$0
+#credit hours inside span with ID OSR_CAT_SRCH_OSR_UNITS_DESCR$0
 
 require 'mechanize'
 
 mechanize = Mechanize.new
 
-page = mechanize.get('http://websitewewanttopull.com/')
+page = mechanize.get('https://registrar.osu.edu/courses/index.asp')
 
-puts page.title
-end
-=end
+link = page.link_with(text: 'Search Course Catalog')
 
-=begin
-def read_html
-    read the html file's contents using mechanize
-end
- =end
- 
- =begin
- def fill_form
-  input into the text boxes for the coures catalog and hit search
- end
-  =end
-  
-  =begin
-  def present
-    presenting the data in a text file via table
-    extra: make html where user can pick what data they want to see
-    present in table:
-    the name of the cse class
-    the number of credit hours
-    the course attributes
-  end
- =end
+page = link.click
+
+form = page.forms.first
+
+form['OSR_CAT_SRCH_WK_DESCR'] = 'Computer Science & Engineering'
+form['OSR_CAT_SRCH_WK_CATALOG_NBR'] = '3'
+
+page = form.submit
+
+puts page.uri
