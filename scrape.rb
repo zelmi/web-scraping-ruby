@@ -12,7 +12,7 @@ mapped_choices = ["sports", "campus", "science-and-medicine", "arts-and-humaniti
 # Prompt the user for what type of stories they want
 input = prompt "What type of stories would you like? Please input the number beside it.\n1. Sports\n2. Campus\n3. Science & Medicine\n4. Arts & Humanities\n5. The Conversation\n6. Covid Updates"
 
-while !input.to_i().between?(1,6) #keep asking for input until input is valid
+while !input.to_i().between?(1,6) && !(input == "no" || input == "No") #keep asking for input until input is valid
 	puts "invalid input, please try again"
 	input = prompt "What type of stories would you like? Please input the number beside it.\n1. Sports\n2. Campus\n3. Science & Medicine\n4. Arts & Humanities\n5. The Conversation\n6. Covid Updates"
 end
