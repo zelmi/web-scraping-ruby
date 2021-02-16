@@ -1,27 +1,48 @@
-
-#INFORMATION NECESSARY TO RETRIEVE DETAILS:
-#actual form ID = OSR_CAT_SRCH,  name is win0
-#subject area name =   OSR_CAT_SRCH_WK_DESCR
-#catalog number area = OSR_CAT_SRCH_WK_CATALOG_NBR
-#choices for catalog = OSR_CAT_SRCH_WK_OSR_EXACT_MATCH1
-#course title inside span with ID = OSR_CAT_SRCH_OSR_CRSE_HEADER$0
-#credit hours inside span with ID OSR_CAT_SRCH_OSR_UNITS_DESCR$0
-
 require 'mechanize'
 
+# Makes prompting easier
+def prompt(message)
+    puts message
+    gets.chomp()
+end
+
+# Used to convert user selection to the string link
+mapped_choices = ["sports", "campus", "science-and-medicine", "arts-and-humanities", "the-conversation", "covid-19-updates"]
+
+# Prompt the user for what type of stories they want
+input = prompt "What type of stories would you like?\n1. Sports\n2. Campus\n3. Science & Medicine\n4. Arts & Humanities\n5. The Conversation\n6. Covid Updates"
+
+# Initialize mechanize
 mechanize = Mechanize.new
 
-page = mechanize.get('https://registrar.osu.edu/courses/index.asp')
+# Get the link with the type of stories the user wants
+page = mechanize.get("https://news.osu.edu/#{mapped_choices[input.to_i() - 1]}/")
 
-link = page.link_with(text: 'Search Course Catalog')
+# Stores the links & headlines
+links = []
+headlines = []
 
-page = link.click
+# Go through each of the headings and put the link and heading into their respective arrays
+page.search('.pp_bigheadlines_heading').each do |element|
+    headlines.push(element.text.strip)
+    links.push(element.children[1].attributes['href'].to_s.delete_prefix('//news.osu.edu/'))
+end
 
-form = page.forms.first
+# Ask to choose a headline
+puts "Choose a headline to read"
 
-form['OSR_CAT_SRCH_WK_DESCR'] = 'Computer Science & Engineering'
-form['OSR_CAT_SRCH_WK_CATALOG_NBR'] = '3'
+# Print out the headlines
+for i in 1..headlines.length do
+    puts "#{i}: #{headlines[i - 1]}"
+end
 
-page = form.submit
+# Get the user input
+input = gets.chomp()
 
-puts page.uri
+# Get the page with the headline the user wanted
+page = mechanize.get("https://news.osu.edu/#{links[input.to_i() - 1]}")
+
+# Print out the article text
+page.search('.ppmodule_textblock').each do |block|
+    pp block.text
+end
