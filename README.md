@@ -36,6 +36,8 @@ $ruby lib/scraper.rb
 The program will prompt you to pick a category you would like to read the news about. Input the number beside the category you wish to view the articles for.
 The program will then ask you which article you would like to read. Input the number beside the article. The program will put the article's contents into a text file which you can access and read. After printing the article, the program will ask if the user would like to read another article. If the user types "n" or "N" as input, then the program will terminate. Otherwise, if the user hits any other key, the program will rerun and ask the user to pick a category again.
 
+To view formatted markdown file, use VSCode code editor. Download here: https://code.visualstudio.com
+Open the generated markdown file after running program and select open preview (Ctrl+Shift+V or Command+Shift+V).
 Note that markdown file will be overwritten whenever user chooses to read an article.
 
 
