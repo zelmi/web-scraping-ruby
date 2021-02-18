@@ -33,8 +33,8 @@ To run the program, enter:
 $ruby lib/scrape.rb
 ```
 
-The program will prompt you to pick a category. Input the number beside the category you wish to view the articles for.
-The program will then ask you which article you would like to read. Input the number beside the article. The program will put the article's contents into a text file which you can access and read.
+The program will prompt you to pick a category you would like to read the news about. Input the number beside the category you wish to view the articles for.
+The program will then ask you which article you would like to read. Input the number beside the article. The program will put the article's contents into a text file which you can access and read. After printing the article, the program will ask if the user would like to read another article. If the user types "no" or "No" as input, then the program will terminate. Otherwise, if the user hits any other key, the program will rerun and ask the user to pick a category again.
 
 
 ## Testing
@@ -44,12 +44,8 @@ In order to test the game in the "tests" section, delete the start_games functio
 To test, run
 
 ```
-$ ruby tests/set_test.rb
+$ ruby tests/scrape_test.rb
 ```
-
-## Extra Features
-
-Scoreboard functionality to keep track of individual player wins.
 
 ## Contributions
 
