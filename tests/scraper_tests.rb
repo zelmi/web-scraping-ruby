@@ -1,9 +1,9 @@
 require 'minitest/autorun'
+require 'mechanize'
 require_relative '../lib/prompt'
 require_relative '../lib/headline.rb'
 require_relative '../lib/get_type_of_stories_link'
 require_relative '../lib/get_headline_link_from_user'
-require 'mechanize'
 
 class TestUrl < MiniTest::Test
     #tests if user input will pull up the requested category from the method prompt
@@ -24,5 +24,11 @@ class TestUrl < MiniTest::Test
         actual_url = get_headline_link_from_user(headlines)
         expected_url = "https://news.osu.edu/2021-ohio-state-big-ten-football-schedule-revision-announced/"    
         assert_equal expected_url, actual_url
+    end
+        #tests to see if the method prompt recieves the correct input
+    def test_prompt
+        actual_input = prompt ("please input the number 4")
+        expected_input = "4"
+        assert_equal expected_input, actual_input
     end
 end
