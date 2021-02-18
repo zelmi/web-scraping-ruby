@@ -23,14 +23,14 @@ $gem install mechanize
 Ruby gem Mechanize
 
 ## Design
-mapped_choices holds an array of string that are inserted into a url string to direct the user to the desired webpage. input is the integer the user inputs for the desired category/article they wish to access. The program continues prompting the user for an integer until a valid integer is input. page is the html page retrieved using mechanize. The program uses page to enter the category on the OSU news room site the user chooses and then the article within that category the user selects.
+mapped_choices holds an array of strings that are inserted into a url to direct the user to the desired webpage. input is the integer the user inputs for the desired category/article they wish to access. The program continues prompting the user for an integer until a valid integer is input. page is the html page retrieved using mechanize. The program uses page to enter the category on the OSU news room site the user chooses and then the article within that category the user selects. The methods are placed into separate ruby files; the Headline class in headline.rb stores the title of the headline article and the link to it. get_type_of_stories_link in get_type_of_stories_link.rb gets user input for the category number they picked and returns that category's url. prompt in prompt.rb prints the message passed into the method and then receives the input from that message. get_headline_link_from_user in  get_headline_link_from_user.rb gets the headline links and titles from the passed-in headline array and prompts the user to pick the number of the article they wish to read, returning the link to the article the user picked . scraper.rb uses all of these files to prompt the user to pick a category, stores the articles in that category into an array, prompts the user to pick an article after printing out the article titles, then gets the link to that article and prints out the article's contents in a separate text file.
   
 ## How to use this program
 
 To run the program, enter:
 
 ```
-$ruby lib/scrape.rb
+$ruby lib/scraper.rb
 ```
 
 The program will prompt you to pick a category you would like to read the news about. Input the number beside the category you wish to view the articles for.
