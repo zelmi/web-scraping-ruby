@@ -34,12 +34,12 @@ $ruby lib/scraper.rb
 ```
 
 The program will prompt you to pick a category you would like to read the news about. Input the number beside the category you wish to view the articles for.
-The program will then ask you which article you would like to read. Input the number beside the article. The program will put the article's contents into a text file which you can access and read. After printing the article, the program will ask if the user would like to read another article. If the user types "no" or "No" as input, then the program will terminate. Otherwise, if the user hits any other key, the program will rerun and ask the user to pick a category again.
+The program will then ask you which article you would like to read. Input the number beside the article. The program will put the article's contents into a text file which you can access and read. After printing the article, the program will ask if the user would like to read another article. If the user types "n" or "N" as input, then the program will terminate. Otherwise, if the user hits any other key, the program will rerun and ask the user to pick a category again.
 
 
 ## Testing
 
-In order to test the game in the "tests" section, delete the start_games function call at the bottom of lib/set.rb. Else, the game will run and tests won't.
+The test file contains tests for different functions used in various locations throughout the program.
 
 To test, run
 
@@ -47,7 +47,7 @@ To test, run
 $ ruby tests/scraper_tests.rb
 ```
 
-## Contributions
+## Contributors
 
 ### Team: //Todo: Make team name
 
