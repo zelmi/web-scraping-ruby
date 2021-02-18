@@ -22,6 +22,7 @@ def run_scraper
         # Get the page with the headline the user wanted
         page = mechanize.get(get_headline_link_from_user(headlines))
 
+        #create markdownfile where the article will be written to. File block will automatically close file.
         File.open("article.md", "w") do |f| 
             # Print article link and title
             f.puts "[link to article](#{page.uri})" 
@@ -33,14 +34,6 @@ def run_scraper
                 
             end
         end
-    
-        # Print article link
-        # puts "\nArticle link: #{page.uri}"
-    
-        # Print out the article text
-        # page.search('.ppmodule_textblock').each do |block|
-        #     puts "\n#{block.text.strip}"
-        # end
     
         continue_program = prompt("\nWould you like to read another article? (y/n): ")
     end
