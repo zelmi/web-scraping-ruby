@@ -35,7 +35,7 @@ def run_scraper
             end
         end
 
-        puts"\nHave fun reading! Your chosen article has been saved to the article.md file in the lib folder."
+        puts"\nHave fun reading! Your chosen article has been saved to the article.md file."
         continue_program = prompt("\nWould you like to read another article? (y/n): ")
     end
     
