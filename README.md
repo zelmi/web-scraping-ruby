@@ -44,7 +44,7 @@ In order to test the game in the "tests" section, delete the start_games functio
 To test, run
 
 ```
-$ ruby tests/scrape_test.rb
+$ ruby tests/scraper_tests.rb
 ```
 
 ## Contributions
