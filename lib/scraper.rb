@@ -21,14 +21,26 @@ def run_scraper
     
         # Get the page with the headline the user wanted
         page = mechanize.get(get_headline_link_from_user(headlines))
+
+        File.open("article.md", "w") do |f| 
+            # Print article link and title
+            f.puts "[link to article](#{page.uri})" 
+            f.puts "# #{page.title}"
+        
+            # Print out the article text
+            page.search('.ppmodule_textblock').each do |block|
+                f.puts "\n#{block.text.strip}"
+                
+            end
+        end
     
         # Print article link
-        puts "\nArticle link: #{page.uri}"
+        # puts "\nArticle link: #{page.uri}"
     
         # Print out the article text
-        page.search('.ppmodule_textblock').each do |block|
-            puts "\n#{block.text.strip}"
-        end
+        # page.search('.ppmodule_textblock').each do |block|
+        #     puts "\n#{block.text.strip}"
+        # end
     
         continue_program = prompt("\nWould you like to read another article? (y/n): ")
     end
