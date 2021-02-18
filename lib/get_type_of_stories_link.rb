@@ -9,7 +9,7 @@ def get_type_of_stories_link
     input = prompt "What type of stories would you like? Please input the number beside it.\n1. Sports\n2. Campus\n3. Science & Medicine\n4. Arts & Humanities\n5. The Conversation\n6. Covid Updates\nSelection: "
     
     while !input.to_i().between?(1,6) #keep asking for input until input is valid
-        puts "invalid input, please try again"
+        puts "\nInvalid input. Please try again."
         input = prompt "What type of stories would you like? Please input the number beside it.\n1. Sports\n2. Campus\n3. Science & Medicine\n4. Arts & Humanities\n5. The Conversation\n6. Covid Updates\nSelection: "
     end
 

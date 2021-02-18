@@ -34,11 +34,13 @@ def run_scraper
                 
             end
         end
-    
+
+        puts"\nNOTE: the generated markdown file is located in the lib folder."
         continue_program = prompt("\nWould you like to read another article? (y/n): ")
     end
     
-    puts "\nEnding the program"
+    puts "\nProgram Terminated"
+    puts "Goodbye!"
 end
 
 run_scraper
