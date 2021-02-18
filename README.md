@@ -14,9 +14,9 @@ $rbenv install 2.6.6 # this step takes several minutes
 $rbenv global 2.6.6  # set default ruby version
 
 $ruby -v # confirm it works
-
+```
 Afterwards, to install Mechanize,
-
+```bash
 $gem install mechanize
 ```
 ## Requires
