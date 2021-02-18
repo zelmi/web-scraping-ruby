@@ -1,8 +1,8 @@
 require 'minitest/autorun'
 require_relative '../lib/prompt'
-require_relative 'lib/headline.rb'
-require_relative 'lib/get_type_of_stories_link'
-require_relative 'lib/get_headline_link_from_user'
+require_relative '../lib/headline.rb'
+require_relative '../lib/get_type_of_stories_link'
+require_relative '../lib/get_headline_link_from_user'
 require 'mechanize'
 
 class TestUrl < MiniTest::Test
