@@ -36,19 +36,20 @@ $ruby lib/scraper.rb
 The program will prompt you to pick a category you would like to read the news about. Input the number beside the category you wish to view the articles for.
 The program will then ask you which article you would like to read. Input the number beside the article. The program will put the article's contents into a text file which you can access and read. After printing the article, the program will ask if the user would like to read another article. If the user types "n" or "N" as input, then the program will terminate. Otherwise, if the user hits any other key, the program will rerun and ask the user to pick a category again.
 
-##Markdown File
+## Markdown File
 
-###VSCode
+### VSCode
 
 To view the formatted markdown file in VSCode, use VSCode code editor. Download here: https://code.visualstudio.com
 Open the generated markdown file after running program and select open preview (Ctrl+Shift+V or Command+Shift+V).
 Note that markdown file will be overwritten whenever user chooses to read an article.
 
-###RubyMine
+### RubyMine
 
 To view the formatted markdown file in RubyMine, navigate to the project tab, and then double click the article.md file in the lib folder. Note: the markdown file will be overwritten whenever the user chooses to read a new article.
 
-###Terminal
+### Terminal
+
 To view the formatted markdown file in the Ubuntu terminal, issue the following command to install the mdless gem:
 ```
 $ gem install mdless
