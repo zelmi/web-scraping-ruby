@@ -1,5 +1,5 @@
 # Makes prompting easier
 def prompt(message)
-    puts message
+    print message
     gets.chomp()
 end

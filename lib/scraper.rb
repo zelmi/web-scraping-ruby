@@ -12,7 +12,7 @@ def run_scraper
     # Initialize mechanize
     mechanize = Mechanize.new
     
-    until continue_program.downcase() == "no" do
+    until continue_program.downcase() == "n" do
         # Get the link with the type of stories the user wants
         page = mechanize.get(get_type_of_stories_link())
     
@@ -30,7 +30,7 @@ def run_scraper
             puts "\n#{block.text.strip}"
         end
     
-        continue_program = prompt("\nRead another article? Type 'no' if not. Press any other key for yes.")
+        continue_program = prompt("\nWould you like to read another article? (y/n): ")
     end
     
     puts "\nEnding the program"
